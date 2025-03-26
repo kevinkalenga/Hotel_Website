@@ -1,10 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
+import Home from "./booking/Home";
+import Login from "./auth/Login";
+import Register from "./auth/Register"
 
 function App() {
   return (
-    <div className="text-danger text-center">
-      <h1>Mon super site</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
