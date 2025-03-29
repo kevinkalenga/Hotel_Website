@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const TopNav = () => {
     return (
-        <div className="nav bg-light d-flex justify-content-between">
+        <div className="nav bg-light d-flex justify-content-between boxshadow">
             <Link className="nav-link" to="/">
                 Home
             </Link>
