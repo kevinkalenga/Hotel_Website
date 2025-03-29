@@ -1,9 +1,12 @@
 import express from "express";
-import { readdirSync } from "fs"
+import { readdirSync } from "fs";
+const morgan = require("morgan")
 require("dotenv").config();
 
 const app = express();
 
+// middlecares
+app.use(morgan("dev"))
 // route middleware 
 readdirSync("./routes").map((r) => app.use('/api', require(`./routes/${r}`)))
 
