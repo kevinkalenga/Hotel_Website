@@ -6,24 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 
 // 1. import from react-redux and redux
-import { createStore, combineReducers } from "redux";
+import { createStore } from "redux";
 import { Provider } from "react-redux"
+import rootReducer from './reducers';
 // import { composeWithDevTools } from "redux-devtools-extension";
-// 2. create user reducer function ;
-const authReducer = (state = {}, action) => {
-  switch (action.type) {
-    case "LOGGED_IN_USER":
-      return { ...state, ...action.payload };
-    case "LOGOUT":
-      return action.payload;
-    default:
-      return state;
-  }
-}
-// 3. combine multiple reducers
-const rootReducer = combineReducers({
-  user: authReducer
-})
+
+
 // 4. create redux store 
 const store = createStore(rootReducer)
 // 5. provide redux store to the entire app
