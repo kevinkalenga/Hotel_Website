@@ -13,6 +13,8 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
+
+
 mongoose
     .connect(process.env.MONGO).then(() => {
         console.log('MongoDb is connected')
@@ -25,6 +27,7 @@ mongoose
 // middlecares
 app.use(cors())
 app.use(morgan("dev"))
+app.use(express.json())
 // route middleware 
 // readdirSync("./routes").map((r) => app.use('/api', require(`./routes/${r}`)))
 readdirSync("./routes").map(async (r) => {
