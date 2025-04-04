@@ -35,7 +35,8 @@ export const register = async (req, res) => {
     // validation
     if (!name) return res.status(400).send('Name is required');
     if (!password || password.length < 6)
-        return res.status(400)
+        return res
+            .status(400)
             .send("Password is required and should be at least 6 characters long");
 
     let userExist = await User.findOne({ email }).exec();
