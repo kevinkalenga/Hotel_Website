@@ -1,9 +1,13 @@
 import express from "express";
 import mongoose from "mongoose"
-import { readdirSync } from "fs";
+// import { readdirSync } from "fs";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import authRoutes from "./routes/auth.js";
+
+
+
 
 dotenv.config();
 
@@ -30,10 +34,14 @@ app.use(morgan("dev"))
 app.use(express.json())
 // route middleware 
 // readdirSync("./routes").map((r) => app.use('/api', require(`./routes/${r}`)))
-readdirSync("./routes").map(async (r) => {
-    const route = await import(`./routes/${r}`);
-    app.use("/api", route.default);
-});
+// readdirSync("./routes").map(async (r) => {
+//     const route = await import(`./routes/${r}`);
+//     app.use("/api", route.default);
+// });
+
+app.use("/api", authRoutes);
+
+
 
 
 app.listen(port, () => console.log(`Server is running on port ${port}`))

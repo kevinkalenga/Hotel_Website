@@ -1,3 +1,6 @@
+
+
+
 import React, { useState } from 'react';
 import axios from "axios"
 
@@ -18,6 +21,7 @@ const RegisterForm = () => {
             });
 
             console.log("Register User => ", res)
+
         } catch (err) {
             console.log(err)
         }
