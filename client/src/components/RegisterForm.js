@@ -13,7 +13,7 @@ const RegisterForm = () => {
         e.preventDefault();
         try {
             console.log({ name, email, password })
-            const res = await axios.post(`http://localhost:8000/api/register`, {
+            const res = await axios.post(`${process.env.REACT_APP_API}/register`, {
                 name,
                 email,
                 password,
