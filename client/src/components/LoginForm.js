@@ -15,12 +15,11 @@ const LoginForm = () => {
         try {
 
             const res = await login({ email, password });
-
-
             if (res.data) {
                 console.log("Login response in redux");
-                console.log(res.data)
+
             }
+            console.log(res.data)
             toast.success("Login was successful")
             navigate('/')
 
