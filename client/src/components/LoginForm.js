@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"
 
-import { register } from '../actions/auth'
+import { login } from '../actions/auth'
 
-const RegisterForm = () => {
+const LoginForm = () => {
     const navigate = useNavigate();
-    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -14,11 +13,11 @@ const RegisterForm = () => {
         e.preventDefault();
         try {
 
-            const res = await register({ name, email, password });
+            const res = await login({ email, password });
 
-            console.log("Register User => ", res)
-            toast.success("Register was successful")
-            navigate('/login')
+            console.log("Login User => ", res)
+            toast.success("Login was successful")
+            navigate('/')
 
         } catch (err) {
             console.log(err)
@@ -29,16 +28,7 @@ const RegisterForm = () => {
     return (
 
         <form onSubmit={handleSubmit} className="mt-5">
-            <div className="form-group mb-3">
-                <label className="form-label">Your name</label>
-                <input type="name"
-                    className="form-control"
-                    placeholder="Enter name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
 
-            </div>
             <div className="form-group mb-3">
                 <label className="form-label">Email address</label>
                 <input type="email"
@@ -59,7 +49,7 @@ const RegisterForm = () => {
                 />
 
             </div>
-            <button disabled={!name || !email || !password} className="btn btn-primary">Submit</button>
+            <button disabled={!email || !password} className="btn btn-primary">Submit</button>
         </form>
 
 
@@ -67,4 +57,4 @@ const RegisterForm = () => {
     )
 }
 
-export default RegisterForm
+export default LoginForm
