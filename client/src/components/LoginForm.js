@@ -11,11 +11,16 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Send Login data => ", { email, password })
         try {
 
             const res = await login({ email, password });
 
-            console.log("Login User => ", res)
+
+            if (res.data) {
+                console.log("Login response in redux");
+                console.log(res.data)
+            }
             toast.success("Login was successful")
             navigate('/')
 
