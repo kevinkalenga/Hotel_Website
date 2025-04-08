@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"
-
+import { useDispatch } from "react-redux";
 import { login } from '../actions/auth'
 
 const LoginForm = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,7 +20,11 @@ const LoginForm = () => {
                 console.log("Login response in redux");
 
             }
-            console.log(res.data)
+            window.localStorage.setItem("auth", JSON.stringify(res.data))
+            dispatch({
+                type: "LOGGED_IN_USER",
+                payload: res.data
+            })
             toast.success("Login was successful")
             navigate('/')
 
