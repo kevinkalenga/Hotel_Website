@@ -6,9 +6,9 @@ const DashboardSeller = () => {
     return (
         <>
             <div className="container-fluid bg-secondary p-5">
-                <div className="container-fluid bg-secondary p-5">
-                    <ConnectNav />
-                </div>
+
+                <ConnectNav />
+
             </div>
 
             <div className="container-fluid p-4">
