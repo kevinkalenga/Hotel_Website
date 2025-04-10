@@ -9,7 +9,8 @@ import Register from "./auth/Register";
 import TopNav from "./components/TopNav";
 import Dashboard from './user/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
-import DashboardSeller from './user/DashboardSeller'
+import DashboardSeller from './user/DashboardSeller';
+import NewHotel from './hotels/NewHotel';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/seller" element={<DashboardSeller />} />
+          <Route path="/hotels/new" element={<NewHotel />} />
         </Route>
       </Routes>
       <ToastContainer
