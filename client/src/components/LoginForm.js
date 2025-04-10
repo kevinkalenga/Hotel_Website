@@ -26,7 +26,7 @@ const LoginForm = () => {
                 payload: res.data
             })
             toast.success("Login was successful")
-            navigate('/')
+            navigate('/dashboard')
 
         } catch (err) {
             console.log(err)

@@ -1,11 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
+// components
 import Home from "./booking/Home";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import TopNav from "./components/TopNav";
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from "react-toastify";
+import Dashboard from './user/Dashboard';
+import PrivateRoute from './components/PrivateRoute';
+
 
 
 
@@ -20,6 +24,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
       </Routes>
       <ToastContainer
         position="bottom-center"
