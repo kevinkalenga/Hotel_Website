@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose"
 // import { readdirSync } from "fs";
+
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
