@@ -9,6 +9,7 @@ import Register from "./auth/Register";
 import TopNav from "./components/TopNav";
 import Dashboard from './user/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
+import DashboardSeller from './user/DashboardSeller'
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/seller" element={<DashboardSeller />} />
         </Route>
       </Routes>
       <ToastContainer
